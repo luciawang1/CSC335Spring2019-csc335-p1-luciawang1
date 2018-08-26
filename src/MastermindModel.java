@@ -6,9 +6,10 @@
 public class MastermindModel {
 	//private variable(s) to store the answer
 
-
+	// Only these methods may be public - you may not create any additional 
+	// public methods (and NO public fields)
     public MastermindModel() { 
-    	/* Make the answer */ 
+    	// TODO Make the answer  
     }
 
 
@@ -18,4 +19,7 @@ public class MastermindModel {
     	
     	return 'r'; //Just returning something to make sure the code compiles
     }
+    
+    // Create as many private methods as you like
+
 }
