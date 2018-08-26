@@ -1,8 +1,8 @@
-#Mastermind
+# Mastermind
 
-Your first project is to implement the game of Mastermind. In this game, the computer chooses 4 pegs each with one of 6 colors.  The player’s job is then to guess the colors that the computer has chosen in the proper order. After each guess by the player, if the player’s guess is not correct, the computer will give two numbers as feedback.  The first number is how many pegs are the proper color and in the proper position. The second number is how many pegs are the proper color, but not in the correct position.
+Your first project is to implement the game of Mastermind. In this game, the computer chooses 4 pegs each with one of 6 colors.  The playerâ€™s job is then to guess the colors that the computer has chosen in the proper order. After each guess by the player, if the playerâ€™s guess is not correct, the computer will give two numbers as feedback.  The first number is how many pegs are the proper color and in the proper position. The second number is how many pegs are the proper color, but not in the correct position.
 
-The game ends when the color string is correct – and the player wins – or they give 10 incorrect guesses – and they lose.
+The game ends when the color string is correct â€“ and the player wins â€“ or they give 10 incorrect guesses â€“ and they lose.
 What you need to do:
 
 - Generate a random computer guess of four colors out of:
@@ -23,10 +23,10 @@ Colors in the correct place: 1
 Colors correct but in wrong position: 0
 
 Enter guess number 2:
-…
+â€¦
 ```
 
-##Model/View/Controller
+## Model/View/Controller
 
 A common pattern for writing programs is known as MVC (Model/View/Controller). This pattern applies whenever we have some problem we can model (like a game board) and a user interface that displays and interacts with that model (the view). The controller is the code that manipulates the model in response to actions from the view.
 
@@ -34,12 +34,12 @@ The idea of MVC is that each part of the program is sufficiently abstracted from
 
 For us, the implementation of the model is very simple: either an array or String of colors (ints, chars, etc.) that represents the randomly-chosen colors we are trying to guess.
 
-The view is a simple text-based program as we’ve written many times before. It will prompt the user for their guesses and display if the guess is correct, or show the two statistics that we must calculate.
+The view is a simple text-based program as weâ€™ve written many times before. It will prompt the user for their guesses and display if the guess is correct, or show the two statistics that we must calculate.
 
 The controller links these two things together. We will then make three classes:
 
 1.    A main class (named Mastermind) that serves as our view, creates the Model and Controller, and deals with user input and output.
-2.    A model class (named MastermindModel) that stores the representation of the computer’s guess and uses a constructor and accessors to create and query the solution the player is trying to guess, defined as follows:
+2.    A model class (named MastermindModel) that stores the representation of the computerâ€™s guess and uses a constructor and accessors to create and query the solution the player is trying to guess, defined as follows:
 
 ```Java
 class MastermindModel {
@@ -59,13 +59,13 @@ class MastermindModel {
 ```Java
 class MastermindController {
 
-	public MastermindController(MastermindModel model) { … }
+	public MastermindController(MastermindModel model) { â€¦ }
 
-	public boolean isCorrect(String guess) { … }
+	public boolean isCorrect(String guess) { â€¦ }
  
-	public int getRightColorRightPlace(String guess) { … }
+	public int getRightColorRightPlace(String guess) { â€¦ }
 
-	public int getRightColorWrongPlace(String guess) { … }
+	public int getRightColorWrongPlace(String guess) { â€¦ }
 
 }
 ```
@@ -73,7 +73,7 @@ class MastermindController {
 
 You are to provide the implementation of all three classes, but you must define your controller and model using at least the methods above. Any additional methods or fields you want to add must be private to your classes.
 
-##Hints and Notes
+## Hints and Notes
 
 * For right color, wrong place, you will need to not count colors from the guess that are the right color in the right place.
 * You also need to avoid double counting a color as being in the wrong position
@@ -81,7 +81,7 @@ You are to provide the implementation of all three classes, but you must define 
 * You may want to play the game on paper where you consider various guesses and solutions and score them to see the issue
 * The perfect player can always win this game in 7 guesses or less.
 
-##Submission
+## Submission
 
 Make sure to periodically commit and push your changes to github. 
 
