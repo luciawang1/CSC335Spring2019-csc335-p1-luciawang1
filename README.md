@@ -6,7 +6,7 @@ The game ends when the color string is correct -- and the player wins -- or they
 What you need to do:
 
 - Generate a random computer guess of four colors out of:
-     - Red, Orange, Yellow, Green, Blue, Purple
+     - **R**ed, **O**range, **Y**ellow, **G**reen, **B**lue, **P**urple
 - Read a guess from the user as a string of colors
 - Score the guess, and report the two values back to the user
 - Allow the user to continue to guess until they get it correct, or reach 10 turns and they lose.
@@ -23,7 +23,7 @@ Colors in the correct place: 1
 Colors correct but in wrong position: 0
 
 Enter guess number 2:
-…
+...
 ```
 
 ## Model/View/Controller
