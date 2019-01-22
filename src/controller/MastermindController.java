@@ -1,3 +1,6 @@
+package controller;
+import model.MastermindModel;
+
 /**
  * 
  * @author YOUR NAME HERE

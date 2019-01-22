@@ -1,6 +1,10 @@
+package tests;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
+
+import controller.MastermindController;
+import model.MastermindModel;
 
 /**
  * This class collects all of the test methods for our controller.
