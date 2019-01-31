@@ -78,18 +78,30 @@ class MastermindTest {
 	@Test
 	void testGetRightColorRightPlace() {
 		// Build a model with a known answer, using our special testing constructor
-		MastermindModel answer = new MastermindModel("rrgb");
+		MastermindModel answer = new MastermindModel("rrrr");
 		// Build the controller from the model
 		MastermindController controllerUnderTest = new MastermindController(answer);
 
 		// For a properly working controller, this should return 4
-		assertEquals(controllerUnderTest.getRightColorRightPlace("rrgb"), 4);
+		assertEquals(controllerUnderTest.getRightColorRightPlace("rrrr"), 4);
 
 		// For a properly working controller, this should return 0
 		assertEquals(controllerUnderTest.getRightColorRightPlace("oooo"), 0);
 
 		// You'll need lots more of these to convince yourself your implementation is
 		// right
+	}
+	
+	@Test
+	void testGetRightColorRightPlace2() {
+		MastermindModel answer = new MastermindModel("rrrb");
+		MastermindController controllerUnderTest = new MastermindController(answer);
+		assertEquals(controllerUnderTest.getRightColorRightPlace("rbrb"), 3);
+		assertEquals(controllerUnderTest.getRightColorRightPlace("oooo"), 0);
+		assertEquals(controllerUnderTest.getRightColorRightPlace("brrb"), 3);
+		assertEquals(controllerUnderTest.getRightColorRightPlace("brrr"), 2);
+		assertEquals(controllerUnderTest.getRightColorRightPlace("brrg"), 2);
+		assertEquals(controllerUnderTest.getRightColorRightPlace("rrrb"), 4);
 	}
 
 	/**
@@ -102,9 +114,21 @@ class MastermindTest {
 		MastermindModel answer = new MastermindModel("groy");
 		MastermindController controllerUnderTest = new MastermindController(answer);
 		assertEquals(controllerUnderTest.getRightColorWrongPlace("royg"), 4);
-
-
-
 	}
 
+	@Test
+	void testGetRightColorWrongPlace1() {
+		// TODO this one you're all on your own
+		MastermindModel answer = new MastermindModel("groy");
+		MastermindController controllerUnderTest = new MastermindController(answer);
+		assertEquals(controllerUnderTest.getRightColorWrongPlace("royy"), 2);
+	}
+	
+	@Test
+	void testGetRightColorWrongPlace2() {
+		// TODO this one you're all on your own
+		MastermindModel answer = new MastermindModel("grrg");
+		MastermindController controllerUnderTest = new MastermindController(answer);
+		assertEquals(controllerUnderTest.getRightColorWrongPlace("rrrr"), 0);
+	}
 }

@@ -15,6 +15,7 @@ public class Mastermind {
 		System.out.println("Welcome to Mastermind!");
 		System.out.print("Would you like to play? ");
 		int numGuesses = 1;
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		String play = scanner.nextLine().toLowerCase();
 
@@ -24,23 +25,22 @@ public class Mastermind {
 			System.exit(0);
 		}
 
-		// TODO while the user wants to play:
+		// while the user wants to play:
 		while (play != "no") {
 
-			// TODO Construct the model (whose constructor builds the secret answer)
+			// Construct the model (whose constructor builds the secret answer)
 			MastermindModel model = new MastermindModel();
 			String answer = "";
 			for (int i = 0; i < 4; i++) {
 				answer += model.getColorAt(i);
 			}
 
-			// TODO Construct the controller, passing in the model
+			// Construct the controller, passing in the model
 			MastermindController controller = new MastermindController(model);
-			boolean correct = false;
 			System.out.println(answer);
 			System.out.println();
 
-			// TODO Read up to ten user inputs
+			// Read up to ten user inputs
 			while (numGuesses <= 10) {
 				System.out.println("Enter guess number " + numGuesses + ": ");
 				numGuesses += 1;
@@ -49,25 +49,27 @@ public class Mastermind {
 					System.out.println("Invalid guess, guess again.");
 					guess = scanner.nextLine().toLowerCase();
 				}
-				// TODO Check whether or not the input is correct (by asking the controller)
+				// Check whether or not the input is correct (by asking the controller)
 				if (controller.isCorrect(guess)) {
 					System.out.println("You win!");
 					System.out.println();
 					break;
 				}
 
-				// TODO If not, display the relevant statistics (by asking the controller)
+				// display the relevant statistics (by asking the controller)
 				System.out.println("Colors in the correct place: " + controller.getRightColorRightPlace(guess));
 				System.out.println(
 						"Colors correct but in the wrong position: " + controller.getRightColorWrongPlace(guess));
 				System.out.println();
 			}
 
-			// TODO Determine win or loss
+			// Determine win or loss
 			if (numGuesses == 11) {
 				System.out.println("You lose. The correct answer was: " + answer);
 				System.out.println();
 			}
+
+			// allow the user to play the game multiple times
 			System.out.println("Welcome to Mastermind!");
 			System.out.print("Would you like to play? ");
 			play = scanner.nextLine().toLowerCase();

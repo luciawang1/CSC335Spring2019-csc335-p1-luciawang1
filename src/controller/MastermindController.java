@@ -49,26 +49,43 @@ public class MastermindController {
 	// wrong place
 	// count increments when the answer contains the char at that index
 	public int getRightColorWrongPlace(String guess) {
+		// use 2d array
+		char[][] colors = new char[4][2];
 		int count = 0;
+
+		// answer
 		String a = "";
 		for (int i = 0; i < 4; i++) {
 			a = a + "" + model.getColorAt(i);
 		}
 
+		// populate 2d array: column 1 = answer, column 2 = guess
 		for (int i = 0; i < 4; i++) {
-			if (a.contains(Character.toString(guess.charAt(i)))) {
-				count += 1;
+			
+			
+			// prevent it from counting right color right place;
+			if (guess.charAt(i) == model.getColorAt(i)) {
+				colors[i][0] = 'z';
+				colors[i][0] = 'x';
+			} else {
+				
+				colors[i][0] = model.getColorAt(i);
+				colors[i][1] = guess.charAt(i);
 			}
+	
 		}
-		return count - getRightColorRightPlace(guess);
-	}
 
-	public int getRightColorWrongPlace(String guess, String a) {
-		int count = 0;
+		// count right color wrong place
 		for (int i = 0; i < 4; i++) {
-			if (a.contains(Character.toString(guess.charAt(i)))) {
-				count += 1;
+			for (int j = 0; j < 4; j++) {
+				if (colors[i][0] == colors[j][1]) {
+					count += 1;
+					break;
+				}
 			}
+			//if (a.contains(Character.toString(guess.charAt(i)))) {
+			//	count += 1;
+			//}
 		}
 		return count;
 	}
